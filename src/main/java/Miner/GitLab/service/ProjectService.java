@@ -30,7 +30,7 @@ public class ProjectService {
     RestTemplate restTemplate;
 
     private final String uri = "https://gitlab.com/api/v4/projects/";
-    private final String token = "glpat-3aox7aT7i7sWL_MERLPt";
+    private final String token = "";
 
     public Project findOne(String id){
         ProjectSearch p = restTemplate.getForObject(uri + id, ProjectSearch.class);
