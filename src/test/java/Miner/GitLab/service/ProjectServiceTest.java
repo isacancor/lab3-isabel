@@ -30,4 +30,10 @@ public class ProjectServiceTest {
         System.out.println(service.findAllComments("4207231", "2390"));
     }
 
+    @Test
+    void postGitMiner(){
+        System.out.println(service.postGitMiner("4207231"));
+
+    }
+
 }

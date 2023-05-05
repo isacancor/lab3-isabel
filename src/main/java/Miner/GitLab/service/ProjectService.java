@@ -5,6 +5,7 @@ import Miner.GitLab.model.comment.CommentSearch;
 import Miner.GitLab.model.comment.Note;
 import Miner.GitLab.model.commit.Commit;
 import Miner.GitLab.model.commit.CommitSearch;
+import Miner.GitLab.model.gitMiner.Example;
 import Miner.GitLab.model.issue.Issue;
 import Miner.GitLab.model.issue.IssueSearch;
 import Miner.GitLab.model.project.Project;
@@ -88,5 +89,15 @@ public class ProjectService {
         }
 
         return res;
+    }
+
+    public Example postGitMiner(String id){
+        String uri = "http://localhost:8080/gitminer/projects";
+        Project project = findOne(id);
+        Example e = Example.ofFormat(project);
+
+        ResponseEntity<Example> response = restTemplate.postForEntity(uri, e, Example.class);
+
+        return response.getBody();
     }
 }
